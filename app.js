@@ -4,6 +4,10 @@ let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 let indexRouter = require('./routes/index');
+let hbs=require('hbs');
+hbs.registerHelper( "prettifyDate", function(timestamp) {
+  return new Date(parseInt(timestamp)).toLocaleString();
+});
 
 let app = express();
 

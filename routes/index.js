@@ -7,7 +7,7 @@ const db = require('knex')(config)
 /* GET home page. */
 router.get('/', function(req, res, next)
 {
-  let items=db.from('gamers').where({status:'On'}).orderBy('created_at','asc');
+  let items=db.from('gamers').where({status:'On'}).orderBy('created_at','desc');
   items.then(function (rows) {
     res.render('index', { rows: rows });
 
